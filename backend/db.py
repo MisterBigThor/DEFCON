@@ -1,14 +1,7 @@
 from utils import *
 
-# TODO: Tidy up this region
-# BD_COLORS = {
-#    1 : ('DEFCON1', 'white'), 2 : ('DEFCON2', 'red'),
-#    3 : ('DEFCON3', 'yellow'),4 : ('DEFCON4', 'green'),
-#    5 : ('DEFCON5', 'blue')
-#}
-
 BD_ENV_VAR='DEFCON_DB_PATH'
-BD_FILE="defcon_data.bd"
+DEFAULT_BD_FILE="defcon_data.bd"
 
 
 def db_get_file(db_file:str) -> str:
