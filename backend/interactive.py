@@ -1,11 +1,14 @@
 #!/bin/python3
 from db import *
+from utils import *
 
-PERSISTANCE_FILE="defcon_data.bd"
+BD_FILE="defcon_data.bd"
 
 def main():
+    db_file=check_env(BD_FILE)
+
     # Load value from database
-    defcon_value = load_defcon_value(PERSISTANCE_FILE)
+    defcon_value = load_defcon_value(db_file)
     print(f"DEFCON {defcon_value}")
     print("Enter a new DEFCON value [1,5]\n0 to exit")
     
@@ -13,11 +16,11 @@ def main():
     while True:
         try:
             print(f"DEFCON {defcon_value}")
-            new_val = int(input("New value:"))
-            if corretVal(new_val):
-                store_defcon_value(PERSISTANCE_FILE, str(new_val))
-                defcon_value=new_val
-            elif new_val == 0: 
+            user_val = int(input("New value:"))
+            if corretVal(user_val):
+                store_defcon_value(db_file, str(user_val))
+                defcon_value=user_val
+            elif user_val == 0: 
                 exit(0)
             else: 
                 raise ValueError
