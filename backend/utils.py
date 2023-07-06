@@ -3,10 +3,11 @@ from os import getenv
 import datetime
 
 #LOG:
-INFO="INFO:"
-WARN="WARN:"
-log_info    = lambda msg : print(f"{INFO} {msg}") 
-log_warn    = lambda msg : print(f"{WARN} {msg}") 
+verboseMode=True
+log_info    = lambda msg : print(f"INFO: {msg}")
+log_warn    = lambda msg : print(f"WARN: {msg}")
+log_crit    = lambda msg : print(f"CRITICAL: {msg}")
+log = {0 : log_info,1 : log_warn,2 : log_crit}
 
 #ENV Fx:
 existEnv    = lambda env_var : (getenv(env_var) != None)
